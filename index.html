@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI绘画革命</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 字体 & 图标 -->
+    <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "微软雅黑", sans-serif; }
+
+    body { background: #f6f7f9; color: #333; line-height: 1.8; }
+
+    /* ===== 导航栏 ===== */
+    .nav {
+      background: #0b1d36;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+    .logo {
+      font-family: "Orbitron", sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo i { opacity: 0.9; }
+
+    .menu { list-style: none; display: flex; gap: 24px; }
+    .menu a { color: #fff; text-decoration: none; font-size: 14px; opacity: 0.82; }
+    .menu a:hover { opacity: 1; }
+
+    /* ===== 首屏 Banner ===== */
+    .hero {
+      width: 100%;
+      height: 520px;
+      background-image: url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.45); }
+    .hero-text {
+      position: absolute;
+      left: 10%;
+      top: 35%;
+      color: #fff;
+      z-index: 2;
+      max-width: 520px;
+    }
+    .hero-text h1 {
+      font-size: 44px;
+      margin-bottom: 12px;
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 0.6px;
+    }
+    .hero-text p { font-size: 18px; opacity: 0.9; }
+
+    /* ===== 通用区块 ===== */
+    section { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 40px;
+      border-left: 4px solid #0b1d36;
+      padding-left: 12px;
+      color: #222;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title i { color: #0b1d36; opacity: 0.9; font-size: 20px; }
+
+    /* ===== 图文左右 ===== */
+    .intro { display: flex; gap: 60px; align-items: center; }
+   .intro img {
+  width: 45%;
+  max-width: 480px;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.intro-text {
+  width: 55%;
+  line-height: 1.9;
+  font-size: 15px;
+  color: #444;
+}
+
+    .intro-text { line-height: 1.9; font-size: 15px; color: #444; }
+
+    /* ======================================================
+       作品展示：卡片网格 + 图注（来源 + 简述）
+       ====================================================== */
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .art-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.25s ease;
+    }
+    .art-card:hover { transform: translateY(-4px); }
+
+    .art-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .art-caption {
+      padding: 14px 14px 16px;
+    }
+
+    .art-desc {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .art-source {
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .art-source a {
+      color: #0b1d36;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(11, 29, 54, 0.45);
+    }
+    .art-source a:hover { border-bottom-style: solid; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f6f7f9;
+      border: 1px solid #e6e6e6;
+      color: #333;
+      font-size: 12px;
+    }
+
+    /* ===== 统一风格：视频卡片 ===== */
+    .media-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .media-desc {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .media-desc i { color: #0b1d36; opacity: 0.9; }
+
+    /* ===== 页脚 ===== */
+    footer {
+      background: #0b1d36;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 80px;
+      font-size: 14px;
+    }
+
+   /* ===== 响应式 ===== */
+
+/* 平板及以下：简介改纵向，网格变两列，英文标题允许换行 */
+@media (max-width: 900px) {
+  .intro { flex-direction: column; gap: 22px; }
+  .intro img { width: 100%; max-width: 100%; }
+  .intro-text { width: 100%; }
+
+  .art-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .section-title { flex-wrap: wrap; }
+  .section-title .en { margin-left: 0; margin-top: 6px; }
+}
+
+/* 手机：网格一列，首屏高度降低，标题字号缩小 */
+@media (max-width: 600px) {
+  .art-grid { grid-template-columns: 1fr; }
+  .hero { height: 420px; }
+  .hero-text h1 { font-size: 34px; }
+  .hero-text p { font-size: 16px; }
+}
+
+
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- 导航栏 -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <i class="fas fa-palette"></i>
+        AI绘画革命
+      </div>
+      <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+
+<ul class="menu" id="navMenu">
+  <li><a href="index.html">首页</a></li>
+  <li><a href="tools.html">工具对比</a></li>
+  <li><a href="gallery.html">作品欣赏</a></li>
+  <li><a href="tutorial.html">创作教程</a></li>
+</ul>
+
+    </div>
+  </header>
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>AI绘画革命</h1>
+      <p>从 DALL·E 到 Stable Diffusion，探索生成式艺术的未来</p>
+    </div>
+  </div>
+
+  <!-- 人工智能简介 -->
+  <section>
+    <h2 class="section-title">
+  <i class="fas fa-circle-info"></i>
+  人工智能绘画简介
+  <span class="en">AI ART OVERVIEW</span>
+</h2>
+
+<div class="intro">
+  <img src="images/intro.jpg" alt="人工智能绘画与数字创作示意图">
+  <div class="intro-text">
+    <p>
+      AI绘画是基于深度学习模型的一种生成式艺术形式。通过对海量图像与文本数据的学习，
+      人工智能能够理解语言描述并生成具有艺术风格的图像作品。
+    </p>
+    <p>
+      近年来，DALL·E、Midjourney、Stable Diffusion 等工具不断发展，
+      使视觉创作的门槛被极大降低，同时也推动了艺术生产方式的转变。
+    </p>
+    <p>
+      AI绘画技术对艺术生态产生了深远影响：一方面，它极大降低了视觉创作的门槛，使没有传统艺术训练背景的人群也能实现创意表达；另一方面，它正在重塑艺术生产的方式，催生了"提示词工程"（Prompt Engineering）这一新兴创作技能。艺术家与AI的关系从单向创作转变为协作对话，人类提供创意构思和审美判断，AI负责技术执行和可能性探索。
+      </p>
+  </div>
+</div>
+
+  </section>
+
+  <!-- 作品展示（带来源与说明） -->
+  <section>
+   <h2 class="section-title">
+  <i class="fas fa-images"></i>
+  AI绘画作品展示
+  <span class="en">AI ART GALLERY</span>
+</h2>
+
+
+    <div class="art-grid">
+
+      <figure class="art-card">
+        <img src="https://images.unsplash.com/photo-1682685797366-715d29e33f9d?auto=format&fit=crop&w=1200&q=80" alt="作品示例 1">
+        <figcaption class="art-caption">
+          <div class="art-desc">偏电影感的场景构图，适合用于概念氛围参考。</div>
+          <div class="art-source">
+            <span class="badge"><i class="fas fa-link"></i>来源</span>
+            <a href="https://images.unsplash.com/photo-1682685797366-715d29e33f9d" target="_blank" rel="noopener">Unsplash 图片</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <img src="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee?auto=format&fit=crop&w=1200&q=80" alt="作品示例 2">
+        <figcaption class="art-caption">
+          <div class="art-desc">未来感与色彩对比明显，可用于赛博风提示词练习。</div>
+          <div class="art-source">
+            <span class="badge"><i class="fas fa-link"></i>来源</span>
+            <a href="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee" target="_blank" rel="noopener">Unsplash 图片</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <img src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=1200&q=80" alt="作品示例 3">
+        <figcaption class="art-caption">
+          <div class="art-desc">科幻叙事式画面，适合练习“主体 + 环境 + 光影”。</div>
+          <div class="art-source">
+            <span class="badge"><i class="fas fa-link"></i>来源</span>
+            <a href="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba" target="_blank" rel="noopener">Unsplash 图片</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <img src="https://images.unsplash.com/photo-1682687982502-1529b3b33f85?auto=format&fit=crop&w=1200&q=80" alt="作品示例 4">
+        <figcaption class="art-caption">
+          <div class="art-desc">抽象与纹理表现，适合用于风格迁移类提示词参考。</div>
+          <div class="art-source">
+            <span class="badge"><i class="fas fa-link"></i>来源</span>
+            <a href="https://images.unsplash.com/photo-1682687982502-1529b3b33f85" target="_blank" rel="noopener">Unsplash 图片</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="art-card">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="作品示例 5">
+        <figcaption class="art-caption">
+          <div class="art-desc">AI 与创作主题相关视觉，可作为“技术背景”配图。</div>
+          <div class="art-source">
+            <span class="badge"><i class="fas fa-link"></i>来源</span>
+            <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995" target="_blank" rel="noopener">Unsplash 图片</a>
+          </div>
+        </figcaption>
+      </figure>
+        <figure class="art-card">
+  <img src="images/art6.jpg" alt="AI 绘画作品示例 6">
+  <figcaption class="art-caption">
+    <div class="art-desc">
+      抽象化的人机视觉形象，体现人工智能与艺术创作的融合。
+    </div>
+    <div class="art-source">
+      <span class="badge">
+        <i class="fas fa-link"></i>来源
+      </span>
+      <span>作者自选素材（Unsplash，已下载本地）</span>
+    </div>
+  </figcaption>
+</figure>
+
+
+    </div>
+  </section>
+
+  <!-- 视频（YouTube Shorts） -->
+  <section>
+    <h2 class="section-title">
+  <i class="fas fa-video"></i>
+  AI 绘画演示视频
+  <span class="en">AI DRAWING DEMO</span>
+</h2>
+
+
+    <div class="media-card">
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/Tp660Eg22ng"
+          title="AI Drawing Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="media-desc">
+        <i class="fas fa-info-circle"></i>
+        你的 Short 演示：展示 AI 工具生成画面的过程与效果。
+      </p>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>© 2026 数字媒体技术课程作业 · AI绘画革命
+      </p>
+    
+     <p>任欣宇 20241073114 Babysbreath645@163.com
+      </p>
+     <p>李沅鸿 20241091113 1391616809@qq.com
+      </p>
+  </footer>
+
+<script>
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("navMenu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+</script>
+
+</body>
+</html>

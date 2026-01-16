@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI绘画工具对比 | AI绘画革命</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 字体 & 图标 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "微软雅黑", sans-serif;
+    }
+
+    body {
+      background: #f6f7f9;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* ===== 导航栏（全站统一） ===== */
+    .nav {
+      background: #0b1d36;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-family: "Orbitron", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      opacity: 0.9;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.82;
+    }
+
+    .menu a.active {
+      opacity: 1;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 4px;
+    }
+
+    /* ===== 子页面头图（全站统一） ===== */
+    .page-hero {
+      height: 260px;
+      background-image: url("https://images.unsplash.com/photo-1677442136019-21780ecad995");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .page-hero-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .page-hero-text h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    .page-hero-text p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* ===== 内容区（全站统一） ===== */
+    main {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    /* ===== 卡片（tools页主风格） ===== */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 18px;
+      border-left: 4px solid #0b1d36;
+      padding-left: 12px;
+      color: #222;
+    }
+
+    .muted {
+      color: #666;
+      font-size: 14px;
+      margin-top: -6px;
+      margin-bottom: 18px;
+    }
+
+    /* ===== 上半部分：工具简介（你原本的风格） ===== */
+    .tool-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 18px;
+    }
+
+    .tool {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .tool h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #222;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool h3 i {
+      color: #0b1d36;
+      opacity: 0.9;
+    }
+
+    .tool p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* ======================================================
+       关键：表格/列表“不突兀”的统一方案
+       统一做成 card 内的“soft-block”，视觉等级一致
+       ====================================================== */
+
+    .sub-title {
+      font-size: 18px;
+      margin-top: 28px;
+      margin-bottom: 14px;
+      color: #222;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sub-title i {
+      color: #0b1d36;
+      opacity: 0.9;
+    }
+
+    .soft-block {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    /* ===== 表格（轻量、统一、不卡风格） ===== */
+    .soft-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .soft-table thead th {
+      background: #f6f7f9;         /* 用全站背景色，统一不突兀 */
+      color: #222;
+      font-weight: 600;
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .soft-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #eeeeee;
+      vertical-align: top;
+    }
+
+    .soft-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* 表格中的“标签”小样式（加一点像官网的细节） */
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: #f6f7f9;
+      border: 1px solid #e6e6e6;
+      color: #333;
+      margin-right: 6px;
+      margin-top: 6px;
+    }
+
+    /* ===== 列表（显性列表，避免只靠导航ul被老师说不算） ===== */
+    .soft-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .soft-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 6px;
+      border-bottom: 1px solid #eeeeee;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .soft-list li:last-child {
+      border-bottom: none;
+    }
+
+    .step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 28px;
+      border-radius: 999px;
+      background: #0b1d36;
+      color: #fff;
+      font-size: 12px;
+      font-family: "Orbitron", sans-serif; /* 特殊字体，顺便加分 */
+      letter-spacing: 0.4px;
+      flex: 0 0 auto;
+    }
+
+    /* ===== 页脚（全站统一） ===== */
+    footer {
+      background: #0b1d36;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+      margin-top: 80px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 900px) {
+      .tool-list {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 导航栏 -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <i class="fas fa-palette"></i>
+        AI绘画革命
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="tools.html" class="active">工具对比</a></li>
+        <li><a href="gallery.html">作品欣赏</a></li>
+        <li><a href="tutorial.html">创作教程</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 头图 -->
+  <div class="page-hero">
+    <div class="page-hero-text">
+      <h1>AI绘画工具对比</h1>
+      <p>主流工具的定位、优势与适用场景</p>
+    </div>
+  </div>
+
+  <!-- 内容 -->
+  <main>
+
+    <div class="card">
+      <h2>主流工具简介</h2>
+      <div class="muted">先了解定位，再根据需求选择工具。</div>
+
+      <div class="tool-list">
+        <div class="tool">
+          <h3><i class="fas fa-wand-magic-sparkles"></i> DALL·E</h3>
+          <p>文本理解能力强，适合概念图与商业使用场景，输出稳定。</p>
+        </div>
+
+        <div class="tool">
+          <h3><i class="fas fa-star"></i> Midjourney</h3>
+          <p>艺术感突出，风格化强，适合视觉创作与灵感探索。</p>
+        </div>
+
+        <div class="tool">
+          <h3><i class="fas fa-code"></i> Stable Diffusion</h3>
+          <p>开源可定制，可本地部署，适合技术用户与深度工作流。</p>
+        </div>
+
+        <div class="tool">
+          <h3><i class="fas fa-layer-group"></i> Adobe Firefly</h3>
+          <p>与 Adobe 生态融合，偏设计生产流程，适合设计师工作场景。</p>
+        </div>
+      </div>
+
+      <!-- 表格：放在同一个 card 里（不突兀） -->
+      <div class="sub-title"><i class="fas fa-table"></i> 工具对比表</div>
+      <div class="soft-block">
+        <table class="soft-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">工具</th>
+              <th>主要特点</th>
+              <th style="width: 26%;">适合人群</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DALL·E</strong></td>
+              <td>
+                语义理解强、细节稳定
+                <div>
+                  <span class="tag">商业用途</span>
+                  <span class="tag">易上手</span>
+                </div>
+              </td>
+              <td>内容创作者 / 商业用户</td>
+            </tr>
+            <tr>
+              <td><strong>Midjourney</strong></td>
+              <td>
+                艺术风格突出、审美表达强
+                <div>
+                  <span class="tag">风格化</span>
+                  <span class="tag">灵感探索</span>
+                </div>
+              </td>
+              <td>设计爱好者 / 视觉创作者</td>
+            </tr>
+            <tr>
+              <td><strong>Stable Diffusion</strong></td>
+              <td>
+                开源可控、可训练可扩展
+                <div>
+                  <span class="tag">开源</span>
+                  <span class="tag">可定制</span>
+                </div>
+              </td>
+              <td>技术用户 / 深度定制</td>
+            </tr>
+            <tr>
+              <td><strong>Firefly</strong></td>
+              <td>
+                设计工作流友好、生态集成
+                <div>
+                  <span class="tag">设计生产</span>
+                  <span class="tag">生态集成</span>
+                </div>
+              </td>
+              <td>设计师 / 办公场景</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 列表：显性 ol/ul（同风格） -->
+      <div class="sub-title"><i class="fas fa-list-ol"></i> 学习流程</div>
+      <div class="soft-block">
+        <ol class="soft-list">
+          <li><span class="step">01</span> 明确目标（海报/头像/概念图/插画等）</li>
+          <li><span class="step">02</span> 选工具（偏写实 / 偏风格 / 偏可控）</li>
+          <li><span class="step">03</span> 写提示词（主体 + 风格 + 光影 + 镜头）</li>
+          <li><span class="step">04</span> 迭代优化（筛选、放大、局部修复）</li>
+        </ol>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>© 2026 数字媒体技术课程作业 · AI绘画革命</p>
+  </footer>
+
+</body>
+</html>

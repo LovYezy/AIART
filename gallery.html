@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI绘画作品欣赏 | AI绘画革命</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 字体 & 图标 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "微软雅黑", sans-serif;
+    }
+
+    body {
+      background: #f6f7f9;
+      color: #333;
+    }
+
+    /* ===== 导航栏 ===== */
+    .nav {
+      background: #0b1d36;
+      height: 60px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+
+    .logo {
+      font-family: "Orbitron", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .menu a.active {
+      opacity: 1;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 4px;
+    }
+
+    /* ===== 子页面头图 ===== */
+    .page-hero {
+      height: 260px;
+      background-image: url("https://images.unsplash.com/photo-1677442136019-21780ecad995");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .page-hero-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .page-hero-text h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+      font-family: "Orbitron", sans-serif;
+    }
+
+    .page-hero-text p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* ===== 内容区 ===== */
+    main {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 30px;
+      border-left: 4px solid #0b1d36;
+      padding-left: 12px;
+    }
+
+    /* ===== 图片墙 ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 14px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* ===== 页脚 ===== */
+    footer {
+      background: #0b1d36;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+      margin-top: 80px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1000px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 导航栏 -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">AI绘画革命</div>
+    <ul class="menu">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="tools.html">工具对比</a></li>
+      <li><a href="gallery.html" class="active">作品欣赏</a></li>
+      <li><a href="tutorial.html">创作教程</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 子页面头图 -->
+<div class="page-hero">
+  <div class="page-hero-text">
+    <h1>AI绘画作品欣赏</h1>
+    <p>生成式人工智能创造的视觉艺术实例</p>
+  </div>
+</div>
+
+<!-- 内容 -->
+<main>
+
+  <h2 class="section-title">精选 AI 绘画作品</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1682685797366-715d29e33f9d">
+      <div class="gallery-caption">赛博风格人物肖像 · Midjourney</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee">
+      <div class="gallery-caption">未来城市概念艺术 · Stable Diffusion</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba">
+      <div class="gallery-caption">科幻场景设计 · DALL·E</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1682687982502-1529b3b33f85">
+      <div class="gallery-caption">数字抽象艺术 · Adobe Firefly</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+      <div class="gallery-caption">AI 与人类想象力 · 概念合成</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/art6.jpg">
+      <div class="gallery-caption">生成式艺术风格实验</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba">
+      <div class="gallery-caption">科幻建筑设计 · AI 绘画</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee">
+      <div class="gallery-caption">未来主义视觉表达</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- 页脚 -->
+<footer>
+  <p>© 2026 数字媒体技术课程作业 · AI绘画革命</p>
+</footer>
+
+</body>
+</html>

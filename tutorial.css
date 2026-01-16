@@ -1,0 +1,1640 @@
+/* 
+ * AI绘画革命 - 教程页面专用样式
+ * 文件名: tutorial.css
+ * 作者: 数字媒体技术课程小组
+ */
+
+/* ===== 教程介绍区域 ===== */
+.tutorial-intro {
+    padding: 3rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(0, 255, 157, 0.05));
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 2rem;
+}
+
+.intro-header {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.page-title i {
+    color: var(--neon-green);
+}
+
+.page-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.difficulty-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.difficulty-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.level {
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.level.beginner {
+    background: linear-gradient(90deg, #00b894, #00cec9);
+}
+
+.level.intermediate {
+    background: linear-gradient(90deg, #fd79a8, #e84393);
+}
+
+.level.advanced {
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+}
+
+.difficulty-item span:last-child {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ===== 目录导航 ===== */
+.tutorial-toc {
+    padding: 2rem 0 4rem;
+}
+
+.toc-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.toc-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    color: var(--neon-green);
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.toc-item {
+    display: flex;
+    align-items: center;
+    background: rgba(123, 44, 191, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.toc-item:hover {
+    background: rgba(123, 44, 191, 0.2);
+    border-color: var(--neon-green);
+    transform: translateY(-5px);
+    text-decoration: none;
+}
+
+.toc-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--neon-green);
+    margin-right: 1rem;
+    min-width: 60px;
+}
+
+.toc-content {
+    flex: 1;
+}
+
+.toc-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.toc-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.toc-item i:last-child {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.toc-item:hover i:last-child {
+    opacity: 1;
+}
+
+/* ===== 教程章节通用样式 ===== */
+.tutorial-section {
+    padding: 4rem 0;
+}
+
+.tutorial-section.alt-bg {
+    background: rgba(26, 26, 46, 0.5);
+    border-radius: 20px;
+    margin: 2rem auto;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    max-width: 800px;
+}
+
+/* 基础入门章节 */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.content-text h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--neon-blue);
+}
+
+.content-text h3:first-child {
+    margin-top: 0;
+}
+
+.content-text p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.concept-list {
+    list-style: none;
+}
+
+.concept-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.concept-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: var(--neon-green);
+    border-radius: 50%;
+}
+
+.concept-list strong {
+    color: var(--neon-green);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.tip-box {
+    background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(0, 217, 255, 0.1));
+    border: 1px solid var(--neon-green);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.tip-box i {
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    margin-top: 0.2rem;
+}
+
+.tip-content strong {
+    color: var(--neon-green);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* 工作流示意图 */
+.workflow-diagram {
+    background: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.workflow-step {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    margin-bottom: 0.3rem;
+    color: var(--neon-green);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.workflow-arrow {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.workflow-arrow i {
+    color: var(--neon-green);
+    font-size: 1.5rem;
+}
+
+/* ===== 提示词章节 ===== */
+.prompt-structure {
+    margin-bottom: 3rem;
+}
+
+.prompt-structure h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.structure-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+}
+
+.structure-table th {
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+    color: white;
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.structure-table td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.structure-table tr:hover {
+    background: rgba(123, 44, 191, 0.1);
+}
+
+.structure-table strong {
+    color: var(--neon-green);
+}
+
+/* 示例对比 */
+.example-comparison {
+    margin-bottom: 3rem;
+}
+
+.example-comparison h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.comparison-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.example-card {
+    background: var(--card-bg);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.bad-example {
+    border-color: #ff6b6b;
+}
+
+.good-example {
+    border-color: var(--neon-green);
+}
+
+.example-header {
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bad-example .example-header {
+    background: linear-gradient(90deg, rgba(255, 107, 107, 0.1), rgba(255, 163, 108, 0.1));
+}
+
+.good-example .example-header {
+    background: linear-gradient(90deg, rgba(0, 255, 157, 0.1), rgba(0, 217, 255, 0.1));
+}
+
+.example-header h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.bad-example .example-header i {
+    color: #ff6b6b;
+}
+
+.good-example .example-header i {
+    color: var(--neon-green);
+}
+
+.example-content {
+    padding: 1.5rem;
+}
+
+.example-prompt {
+    margin-bottom: 1.5rem;
+}
+
+.example-prompt strong {
+    color: var(--neon-green);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.example-prompt p {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.example-analysis h5 {
+    color: var(--neon-blue);
+    margin-bottom: 0.8rem;
+}
+
+.example-analysis ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.example-analysis li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.example-analysis li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--neon-green);
+}
+
+.result-preview {
+    margin-top: 1.5rem;
+}
+
+.result-placeholder {
+    background: var(--secondary-bg);
+    border: 2px dashed var(--border-color);
+    border-radius: 10px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+
+.result-placeholder i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+/* 风格关键词 */
+.style-keywords {
+    margin-top: 3rem;
+}
+
+.style-keywords h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.keywords-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.keyword-category h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    color: var(--neon-blue);
+    font-size: 1.1rem;
+}
+
+.keyword-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.keyword {
+    background: rgba(123, 44, 191, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.keyword:hover {
+    background: rgba(123, 44, 191, 0.2);
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    transform: translateY(-2px);
+}
+
+/* ===== 视频教程章节 ===== */
+.video-tutorial {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.video-player {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.video-container {
+    background: #000;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 比例 */
+    position: relative;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+.video-info {
+    text-align: center;
+}
+
+.video-info h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.video-description {
+    padding: 1.5rem;
+}
+
+.video-description h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    color: var(--neon-green);
+}
+
+.video-description p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.video-source {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 视频章节列表 */
+.video-chapters {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.video-chapters h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.chapters-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chapter-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.chapter-item:hover {
+    background: rgba(123, 44, 191, 0.1);
+    transform: translateX(5px);
+}
+
+.chapter-time {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    min-width: 55px;
+    text-align: center;
+}
+
+.chapter-content h5 {
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.chapter-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 更多视频 */
+.more-videos {
+    margin-top: 3rem;
+}
+
+.more-videos h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.video-thumbnail {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail:hover {
+    border-color: var(--neon-green);
+    transform: translateY(-5px);
+}
+
+.thumbnail-image {
+    height: 120px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--neon-green);
+}
+
+.thumbnail-info {
+    padding: 1rem;
+}
+
+.thumbnail-info h5 {
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.thumbnail-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ===== 音频访谈章节 ===== */
+.audio-interview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.audio-player {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.player-header {
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+    padding: 1.5rem;
+    color: white;
+}
+
+.player-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.player-header p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.player-controls {
+    padding: 2rem;
+}
+
+.audio-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.audio-thumbnail {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.audio-details h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.audio-details p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+}
+
+.player-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.player-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(123, 44, 191, 0.1);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--neon-green);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.player-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-bar {
+    background: var(--secondary-bg);
+    height: 6px;
+    border-radius: 3px;
+    margin: 2rem 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+    height: 100%;
+    border-radius: 3px;
+    width: 30%; /* 实际项目中由JavaScript控制 */
+}
+
+.current-time,
+.total-time {
+    position: absolute;
+    top: -25px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.current-time {
+    left: 0;
+}
+
+.total-time {
+    right: 0;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.volume-control i {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+}
+
+#volume-slider {
+    flex: 1;
+    height: 6px;
+    background: var(--secondary-bg);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 访谈摘要 */
+.interview-summary h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.summary-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-point {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.point-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.point-content h5 {
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.point-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.audio-source {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 更多音频 */
+.more-audio {
+    margin-top: 3rem;
+}
+
+.more-audio h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.audio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.audio-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.audio-item:hover {
+    border-color: var(--neon-green);
+    transform: translateY(-5px);
+}
+
+.audio-icon {
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.audio-content {
+    flex: 1;
+}
+
+.audio-content h5 {
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.audio-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.audio-length {
+    position: absolute;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* ===== 高级技巧章节 ===== */
+.advanced-techniques {
+    margin-bottom: 3rem;
+}
+
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.technique-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.technique-card:hover {
+    border-color: var(--neon-green);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 157, 0.1);
+}
+
+.technique-icon {
+    font-size: 2.5rem;
+    color: var(--neon-green);
+    margin-bottom: 1.5rem;
+}
+
+.technique-content h3 {
+    margin-bottom: 1rem;
+    color: var(--neon-blue);
+}
+
+.technique-content p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.technique-tips {
+    list-style: none;
+    padding-left: 0;
+}
+
+.technique-tips li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.technique-tips li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.parameter-table {
+    background: rgba(123, 44, 191, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.param-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(123, 44, 191, 0.2);
+}
+
+.param-row:last-child {
+    border-bottom: none;
+}
+
+.param-name {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.param-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: right;
+    max-width: 60%;
+}
+
+/* 项目实战 */
+.project-case {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.project-case h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    color: var(--neon-green);
+}
+
+.case-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.case-step {
+    background: rgba(123, 44, 191, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ===== 学习资源章节 ===== */
+.resource-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.resource-category h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-green);
+}
+
+.resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.resource-item:hover {
+    background: rgba(123, 44, 191, 0.1);
+    border-color: var(--neon-green);
+    transform: translateX(10px);
+    text-decoration: none;
+}
+
+.resource-icon {
+    font-size: 1.8rem;
+    color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.resource-content {
+    flex: 1;
+}
+
+.resource-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.resource-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.resource-type {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(123, 44, 191, 0.2);
+    color: var(--accent-color);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* 学习路径 */
+.learning-path {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.learning-path h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    color: var(--neon-green);
+}
+
+.path-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.path-step {
+    background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(0, 255, 157, 0.05));
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.path-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.path-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.path-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ===== 课程总结 ===== */
+.tutorial-summary {
+    padding: 4rem 0;
+}
+
+.summary-card {
+    background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(0, 255, 157, 0.05));
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+.summary-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    color: var(--neon-green);
+    text-align: center;
+    justify-content: center;
+}
+
+.summary-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.achievement-item i {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+}
+
+.achievement-item span {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.next-steps h3 {
+    margin-bottom: 1.5rem;
+    color: var(--neon-blue);
+}
+
+.next-steps ol {
+    padding-left: 1.5rem;
+    color: var(--text-primary);
+}
+
+.next-steps li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.certificate-preview {
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.certificate {
+    display: inline-block;
+    background: white;
+    border: 3px solid var(--neon-green);
+    border-radius: 15px;
+    padding: 2rem;
+    color: #333;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.certificate h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.certificate p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.certificate-skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-badge {
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* ===== 反馈与练习 ===== */
+.tutorial-feedback {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.tutorial-feedback h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    color: var(--neon-green);
+    text-align: center;
+}
+
+.feedback-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.practice-exercise h4 {
+    margin-bottom: 1.5rem;
+    color: var(--neon-blue);
+}
+
+.exercise-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.exercise-card h5 {
+    color: var(--neon-green);
+    margin-bottom: 1rem;
+}
+
+.exercise-card p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.exercise-tips {
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid var(--neon-green);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.exercise-tips strong {
+    color: var(--neon-green);
+}
+
+.feedback-form h4 {
+    margin-bottom: 1.5rem;
+    color: var(--neon-blue);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-family: 'ZCOOL KuaiLe', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group select:hover,
+.form-group select:focus,
+.form-group textarea:hover,
+.form-group textarea:focus {
+    border-color: var(--neon-green);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 1200px) {
+    .content-grid,
+    .video-tutorial,
+    .audio-interview,
+    .feedback-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .toc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .comparison-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .keywords-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .section-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .toc-grid,
+    .keywords-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .technique-grid,
+    .case-steps,
+    .path-steps,
+    .summary-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .audio-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .summary-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .difficulty-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .structure-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .tutorial-section,
+    .tutorial-section.alt-bg {
+        padding: 2rem 0;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .resource-list {
+        grid-template-columns: 1fr;
+    }
+}

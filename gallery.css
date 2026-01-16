@@ -1,0 +1,71 @@
+/* ===== 全局盒模型设置 ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== 图片墙整体布局 ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;              /* grid 间距（等价于 margin 效果） */
+  margin-top: 40px;       /* 外边距：与标题分开 */
+}
+
+/* ===== 卡片（类选择符） ===== */
+.gallery-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;   /* 边框 */
+  border-radius: 10px;
+
+  padding: 12px;              /* 内边距（框模型核心） */
+  margin: 0;                  /* 明确声明 margin */
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+/* ===== 伪类选择符 ===== */
+.gallery-item:hover {
+  transform: translateY(-6px);
+}
+
+/* ===== 后代选择符 ===== */
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* ===== 文字说明（类选择符） ===== */
+.gallery-caption {
+  margin-top: 10px;       /* 外边距 */
+  padding: 4px 6px;       /* 内边距 */
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== 群组选择符 ===== */
+.gallery-item,
+.gallery-caption {
+  font-family: "微软雅黑", sans-serif;
+}
+
+/* ===== 结构伪类选择符 ===== */
+.gallery-item:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+/* ===== 响应式（补充加分） ===== */
+@media (max-width: 1000px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

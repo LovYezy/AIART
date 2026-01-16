@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI绘画教程 | AI绘画革命</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 字体 & 图标 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "微软雅黑", sans-serif;
+    }
+
+    body {
+      background: #f6f7f9;
+      color: #333;
+      line-height: 1.9;
+    }
+
+    /* ===== 导航栏 ===== */
+    .nav {
+      background: #0b1d36;
+      height: 60px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+
+    .logo {
+      font-family: "Orbitron", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .menu a.active {
+      opacity: 1;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 4px;
+    }
+
+    /* ===== 顶部大图 ===== */
+    .page-hero {
+      height: 320px;
+      background-image: url("https://images.unsplash.com/photo-1677442136019-21780ecad995");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .page-hero-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .page-hero-text h1 {
+      font-size: 36px;
+      font-family: "Orbitron", sans-serif;
+      margin-bottom: 12px;
+    }
+
+    .page-hero-text p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* ===== 内容区 ===== */
+    main {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 20px;
+      border-left: 4px solid #0b1d36;
+      padding-left: 12px;
+    }
+
+    .text-block {
+      margin-bottom: 50px;
+      font-size: 15px;
+      color: #444;
+    }
+
+    /* ===== 三图并排 ===== */
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 60px;
+    }
+
+    .image-row img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* ===== 页脚 ===== */
+    footer {
+      background: #0b1d36;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+      margin-top: 80px;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 900px) {
+      .image-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 导航栏 -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">AI绘画革命</div>
+    <ul class="menu">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="tools.html">工具对比</a></li>
+      <li><a href="gallery.html">作品欣赏</a></li>
+      <li><a href="tutorial.html" class="active">创作教程</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 顶部大图 -->
+<div class="page-hero">
+  <div class="page-hero-text">
+    <h1>AI 绘画教程</h1>
+    <p>理解原理 · 掌握方法 · 理性看待技术影响</p>
+  </div>
+</div>
+
+<!-- 正文 -->
+<main>
+
+  <h2 class="section-title">人工智能的社会影响</h2>
+  <div class="text-block">
+    人工智能（AI）作为一种颠覆性技术，正在深刻改变社会的多个方面，
+    包括经济、教育、工作方式以及文化生产领域。
+    在视觉艺术领域，AI绘画技术通过算法学习大量图像数据，
+    使机器具备了模拟、重组乃至创造图像的能力。
+    这种技术在提升创作效率、拓展艺术表达边界的同时，
+    也引发了关于原创性、版权与艺术价值的讨论。
+  </div>
+
+  <!-- 三图并排（对应你给的参考图） -->
+  <div class="image-row">
+    <img src="https://images.unsplash.com/photo-1682685797366-715d29e33f9d?auto=format&fit=crop&w=1200&q=80">
+    <img src="https://images.unsplash.com/photo-1682686580391-615b1f28e5ee">
+    <img src="images/art6.jpg">
+  </div>
+
+  <div class="text-block">
+    AI绘画正在重塑创意产业的商业模式和生产流程。在商业设计领域，AI工具能够将概念草图到成品的周期从数周缩短至数小时，显著提升了广告、包装、UI设计等领域的生产效率。游戏开发和影视制作中，AI绘画为概念设计、场景构建和角色创作提供了前所未有的可能性，大幅降低了前期开发的成本和时间投入。据行业分析，AI辅助设计工具已在全球创意产业中创造超过200亿美元的经济价值，同时催生了"AI艺术策展人"、"提示词优化师"等新型职业岗位。
+    同时，它也正在改变文化生产的权力结构。传统上由专业艺术家垄断的视觉创作，现在向更广泛的群体开放。社交媒体上涌现出大量AI艺术创作者，形成了新的亚文化和审美趋势。然而，这种技术民主化也带来挑战：算法训练数据中的西方中心主义倾向，可能导致文化表达的单一化；传统艺术形式的生存空间受到挤压，特别是那些依赖手工技巧的工艺门类面临传承危机。
+    在教育领域，AI绘画工具为学习者提供了低门槛的创作方式，
+    帮助学生通过实验性的方式理解构图、色彩和风格。
+    在实际应用中，AI绘画已被用于广告设计、游戏美术、影视概念设计等场景，
+    成为人类创作者的重要辅助工具。
+  </div>
+
+  <div class="text-block">
+    然而，技术的快速普及也带来了新的挑战，
+    如算法偏见、内容同质化以及对传统艺术职业的冲击。
+    因此，在学习和使用 AI 绘画技术的过程中，
+    不仅要掌握工具本身的操作方法，
+    还应保持理性思考，从社会、文化与伦理角度审视技术的发展方向，
+    以实现技术进步与社会价值之间的平衡。
+  </div>
+
+</main>
+    
+<section class="card">
+  <h2>创作过程音频示例</h2>
+  <p class="muted">
+    以下是一段AI生成的背景音乐，
+    体现网页对多媒体元素的综合运用。
+  </p>
+
+  <audio controls>
+    <source src="audio/tutorial-bg.mp3" type="audio/mpeg">
+    您的浏览器不支持 audio 标签。
+  </audio>
+</section>
+
+
+
+<!-- 页脚 -->
+<footer>
+  <p>© 2026 数字媒体技术课程作业 · AI绘画革命</p>
+</footer>
+
+</body>
+</html>
